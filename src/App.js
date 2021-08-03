@@ -1,7 +1,7 @@
 import React from 'react';
+import './components/Todo.css'
 import TodoList from './components/TodoList'
 const mylist = [
-  {} 
 ];
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -14,24 +14,39 @@ class App extends React.Component {
       inputValue: ''
     }
   }
+  handleClear = () => {
+    console.log('inside clear')
+    if(this.state.todolist){
+      let myarry = this.state.todolist.filter(el => el.completed !== true )
 
+      this.setState({todolist: myarry}) } 
+  }
   handleAddItem = (e) =>{
     e.preventDefault();
     // this.setState(this.state, {task: 'myname'})
-    console.log('clicked')
     const newitem = {task: this.state.inputValue,id: Date.now(), completed: false }
     this.setState({todolist: [
       ...this.state.todolist, newitem]})
+    this.setState({inputValue: ''})
   }
   handleChanges= (e) =>{
-    console.log(e.target.value)
+
     this.setState({...this.state, inputValue: e.target.value})
+}
+handleToggle = (id)=>{
+  if(this.state.todolist){
+let myarry = this.state.todolist.map(el => {
+  if (el.id === id){
+    return {task: el.task, completed: !el.completed, id: el.id} }
+  else return el} )
+  console.log(myarry)
+this.setState({todolist: myarry}) } 
 }
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoList list = {this.state.todolist } handleChanges = {this.handleChanges} inputValue = {this.state.inputValue} handleAddItem= {this.handleAddItem}/>
+      <div className= "container">
+        <h1>Welcome to your Todo App!</h1>
+        <TodoList inputvalue = {this.state.inputValue }clear = {this.handleClear} toggle = {this.handleToggle} list = {this.state.todolist } handleChanges = {this.handleChanges} inputValue = {this.state.inputValue} handleAddItem= {this.handleAddItem}/>
       </div>
     );
   }

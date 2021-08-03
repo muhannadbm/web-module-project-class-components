@@ -1,0 +1,38 @@
+.striked{
+    text-decoration: line-through;
+}
+body{
+    display: flex;
+    justify-content: center;
+    background: #ff6b6b;
+}
+.list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h2{
+    color: white;
+}
+h1{
+    color: #6a4242;
+}
+button{
+    margin-top: 1rem;
+    background: #ffc8c8c7;
+    border: none;
+    padding: 1rem;
+    font-weight: bold;
+    color: #440202;
+
+}
+.addbut{
+    padding: 0.5rem;
+margin-left: 1rem;
+}
+.p {
+    background: #c6c2c2;
+    padding: 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+}

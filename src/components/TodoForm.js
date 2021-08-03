@@ -7,8 +7,8 @@ class TodoForm extends React.Component{
         return(
             <div>
                 <form onSubmit={(e)=> e.preventDefault()}>
-                <input onChange={this.props.handleChanges}type="text" name="item" />
-                <button onClick={(e) => this.props.handleAdd(e)}>Add</button>
+                <input value={this.props.inputvalue} onChange={this.props.handleChanges}type="text" name="item" />
+                <button className="addbut" onClick={(e) => this.props.handleAdd(e)}>Add</button>
                 </form>
             </div>
         )

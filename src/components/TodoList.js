@@ -8,10 +8,11 @@ class TodoList extends React.Component {
     render(){
         return(
             
-            <div>My list
-                <TodoForm handleAdd = {this.props.handleAddItem} handleChanges ={this.props.handleChanges}  inputValue = {this.props.inputValue} />
+            <div className="list"><h2>My Todo list</h2>
+                <TodoForm inputvalue = {this.props.inputvalue} handleAdd = {this.props.handleAddItem} handleChanges ={this.props.handleChanges}  inputValue = {this.props.inputValue} />
+                <button onClick={()=> this.props.clear()}>Clear Completed</button>
                 {this.props.list.map(el => {
-                    return <Todo element = {el}/>
+                    return <Todo toggle = {this.props.toggle }element = {el}/>
                 })}
 
             </div>
